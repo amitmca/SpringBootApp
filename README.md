@@ -13,6 +13,7 @@ Another way to run is
 after downloading the code, install maven in your OS if you dont have it
 
 http://www.mkyong.com/maven/how-to-install-maven-in-windows/
+
 http://www.mkyong.com/maven/install-maven-on-mac-osx/
 
 run the below commands from command line inside the project directory
