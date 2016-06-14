@@ -20,6 +20,10 @@ run the below commands from command line inside the project directory
 
 mvn tomcat7:run
 
+If you want to run on a different port use the below command
+
+mvn -Dmaven.tomcat.port=portNumber tomcat7:run
+
 You can access the app at
 
 http://localhost:8080/crudapp/
