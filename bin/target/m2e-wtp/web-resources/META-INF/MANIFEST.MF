@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: crudapp
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Appi
+Implementation-Vendor-Id: org.google
+Build-Jdk: 1.8.0_91
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

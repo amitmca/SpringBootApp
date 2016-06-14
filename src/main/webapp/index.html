@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html ng-app="registrationApp">
+<head>
+<meta charset="UTF-8">
+<title>User Registration</title>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<style>
+    html, body, input, select, textarea
+    {
+        font-size: 1.05em !important;
+    }
+</style>
+
+<!-- load angular via CDN -->
+<script src="//code.angularjs.org/1.4.7/angular.min.js"></script>
+<script src="//code.angularjs.org/1.4.7/angular-route.min.js"></script>
+<script src="//code.angularjs.org/1.4.7/angular-resource.min.js"></script>
+<script src="resources/js/app.js"></script>
+<script src="resources/js/services.js"></script>
+<script src="resources/js/controllers.js"></script>
+
+</head>
+<body>
+	<div class="container" ng-controller="registrationController as regCntrl">
+		<h2>User Form</h2>
+		<div class="alert alert-danger" ng-if="error != null">
+  			<strong>{{error}}</strong> 
+		</div>
+		<form role="form" name="userForm" id="userForm" novalidate ng-submit="userForm.$valid && createUser()">
+			<div class="form-group">
+				<label for="username">User Name</label> 
+				<input type="text"
+					id="username" name="username" required
+					ng-model="user.username" class="form-control">
+				<div
+					ng-show="userForm.$submitted || userForm.username.$touched">
+					<div ng-show="userForm.username.$error.required"
+						class="alert alert-danger">Username is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label> 
+				<input type="text"
+					id="password" name="password" required
+					ng-model="user.password" class="form-control">
+				<div
+					ng-show="userForm.$submitted || userForm.password.$touched">
+					<div ng-show="userForm.password.$error.required"
+						class="alert alert-danger">Password is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="firstname">First Name</label> 
+				<input type="text" id="firstname" name="firstname" required ng-model="user.firstname" class="form-control">
+				<div ng-show="userForm.$submitted || userForm.firstname.$touched">
+					<div ng-show="userForm.firstname.$error.required" class="alert alert-danger">Firstname is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="lastname">Last Name</label> 
+				<input type="text" id="lastname" name="lastname" required ng-model="user.lastname" class="form-control">
+				<div ng-show="userForm.$submitted || userForm.lastname.$touched">
+					<div ng-show="userForm.lastname.$error.required" class="alert alert-danger">Lastname is required</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="address">Address</label> 
+				<input type="text" id="address" name="address" ng-model="user.address" class="form-control">
+			</div>
+	
+			<button type="submit" class="btn btn-primary">Save</button><br/><br/>
+			
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<table class="table table-striped">
+					   <caption>Registered Users</caption>	
+					   <tr>
+					      <th>FirstName</th>
+					      <th>LastName</th>
+					      <th>UserName</th>
+					      <th>Address</th>
+					      <th>Action</th>
+					   </tr>
+					   
+					   <tr ng-repeat = "user in users">
+					      <td>{{ user.firstname }}</td>
+					      <td>{{ user.lastname }}</td>
+					      <td>{{ user.username }}</td>
+					       <td>{{ user.address }}</td>
+					      <td>
+					      	<button type="button" class="btn btn-primary" ng-click="setupFormForUpdate(user)">Edit</button>
+					      	<button type="button" class="btn btn-primary" ng-click="deleteUser(user)">Delete</button>
+					      </td>
+					   </tr>
+					</table>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>
